@@ -1,0 +1,7 @@
+{% extends 'base.html' %}{% block content %}<h1>{{ analise.nome }}</h1><p>{{ analise.turma.nome }} — {{ analise.turma.disciplina }}</p><p>Status: <span class="badge bg-secondary">{{ analise.status }}</span></p>
+<div class="card mb-4"><div class="card-body"><h2 class="h5">Enviar trabalhos</h2><p>Selecione uma pasta. São aceitos arquivos DXF, DWG e PDF.</p>
+<form method="post" action="{{ url_for('uploads.upload',analysis_id=analise.id) }}" enctype="multipart/form-data"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<input class="form-control mb-3" type="file" name="files" webkitdirectory directory multiple required><button class="btn btn-primary">Enviar e analisar</button></form></div></div>
+<h2 class="h4">Arquivos recebidos</h2><div class="table-responsive"><table class="table"><thead><tr><th>Arquivo</th><th>Formato</th><th>Tamanho</th><th>Status</th><th>Detalhe</th></tr></thead><tbody>
+{% for f in analise.arquivos %}<tr><td>{{ f.caminho_relativo }}</td><td>{{ f.extensao }}</td><td>{{ f.tamanho }} bytes</td><td>{{ f.status }}</td><td>{{ f.erro or (f.metadados or {}) }}</td></tr>{% else %}<tr><td colspan="5">Nenhum arquivo enviado.</td></tr>{% endfor %}</tbody></table></div>
+<a class="btn btn-outline-primary" href="{{ url_for('reports.index',analysis_id=analise.id) }}">Ver relatório de similaridade</a>{% endblock %}

@@ -1,0 +1,4 @@
+body { background:#f5f6fa; color:#202534; }
+.auth-card { max-width:430px; margin:5vh auto; background:#fff; padding:2rem; border-radius:14px; box-shadow:0 8px 30px #18233a12; }
+.metric { border:0; border-radius:12px; }
+.form-narrow { max-width:650px; }

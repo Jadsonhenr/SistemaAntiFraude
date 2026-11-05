@@ -1,0 +1,4 @@
+# Exemplo de produção: substitua pelo domínio real.
+antifraude.exemplo.com.br {
+    reverse_proxy web:5000
+}

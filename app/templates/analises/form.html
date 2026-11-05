@@ -1,0 +1,3 @@
+{% extends 'base.html' %}{% block content %}<h1>Nova análise</h1><p class="text-muted">{{ turma.nome }} — {{ turma.disciplina }}</p><form method="post" class="form-narrow">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><label class="form-label">Nome da atividade</label><input class="form-control mb-3" name="nome" required>
+<label class="form-label">Descrição</label><textarea class="form-control mb-3" name="descricao"></textarea><button class="btn btn-primary">Criar análise</button></form>{% endblock %}

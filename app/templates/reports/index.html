@@ -1,0 +1,3 @@
+{% extends 'base.html' %}{% block content %}<h1>Relatório: {{ analysis.nome }}</h1><p class="text-muted">Os resultados são indicadores técnicos, não uma declaração automática de fraude.</p>
+<table class="table table-striped"><thead><tr><th>Arquivo A</th><th>Arquivo B</th><th>Similaridade</th><th>Classificação</th><th>Evidência</th></tr></thead><tbody>
+{% for r in results %}<tr><td>{{ r.arquivo_a.caminho_relativo }}</td><td>{{ r.arquivo_b.caminho_relativo }}</td><td>{{ '%.0f'|format(r.score_total) }}%</td><td>{{ r.classificacao }}</td><td>{{ r.evidencias }}</td></tr>{% else %}<tr><td colspan="5">Nenhum par idêntico encontrado pelo SHA-256. Isso não significa ausência de desenhos semelhantes.</td></tr>{% endfor %}</tbody></table>{% endblock %}

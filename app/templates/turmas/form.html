@@ -1,0 +1,4 @@
+{% extends 'base.html' %}{% block content %}<h1>Nova turma</h1><form method="post" class="form-narrow"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label class="form-label">Nome da turma</label><input class="form-control mb-3" name="nome" required>
+<label class="form-label">Disciplina</label><input class="form-control mb-3" name="disciplina" required>
+<label class="form-label">Descrição</label><textarea class="form-control mb-3" name="descricao"></textarea><button class="btn btn-primary">Salvar</button></form>{% endblock %}
